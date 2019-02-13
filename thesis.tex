@@ -1,0 +1,55 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage{theme/lmuthesis}
+
+% this for draft water mark
+\input{condition}
+\ifthenelse{\boolean{release}}{
+}{
+    \usepackage{draftwatermark}
+    \SetWatermarkText{DRAFT}
+    \SetWatermarkScale{1}
+}
+
+% meta informations
+\department{Institut f\"ur Informatik}
+\lfe{Lehr- und Forschungseinheit Medieninformatik}
+\professor{Prof.\ Dr.\ PROFESSORS NAME}
+\type{Master's Thesis}
+\title{THESIS TITLE}
+\author{AUTHOR}
+\email{EMAIL}
+\bearbeitungszeitraum{START bis END}
+\supervisor{SUPERVISOR}
+\taskdescription{
+    \begin{description}
+        \item[THESIS TITLE]
+        \item[Problem Statement] TO BE ADDED
+        \item[Scope of the Thesis] TO BE ADDED
+        \item[Tasks] TO BE ADDED
+        \item[Requirements] TO BE ADDED
+        \item[Keywords] TO BE ADDED
+    \end{description}
+}
+\acknoledgement{
+    I would like to appreciate ...
+}
+\abstract{
+    This thesis proposes ...
+}
+
+\begin{document}
+
+\makecover
+\maketaskdescription
+\makededication
+\makeabstract
+\maketoc
+% optional:
+% \listoffigures
+% \listoftables
+\cleardoublepage
+
+\input{src/ch01-intro}
+\input{literatures/bib.tex}
+
+\end{document}

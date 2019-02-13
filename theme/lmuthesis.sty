@@ -1,0 +1,239 @@
+\ProvidesPackage{lmuthesis}
+
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[english]{babel}
+\usepackage{mathptmx}
+\usepackage{enumitem}
+\usepackage{cite}
+\usepackage[labelfont=bf]{caption}
+\usepackage{subcaption}
+\usepackage{pdfpages}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage[flushleft]{threeparttable}
+\usepackage{changepage}
+\usepackage{makecell}
+\usepackage{adjustbox}
+\usepackage{float}
+\usepackage{rotating}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{multirow}
+\usepackage{epigraph}
+\usepackage{color}
+\usepackage{xcolor}
+\definecolor{keyword}{HTML}{BA2CA3}
+\definecolor{string}{HTML}{D12F1B}
+\definecolor{comment}{HTML}{008400}
+
+\usepackage{listings}
+\renewcommand{\lstlistingname}{Code}
+\lstset{
+  basicstyle={\small\ttfamily},
+  keywordstyle={\bfseries\color{NavyBlue}},
+  breaklines=true,
+  emphstyle={\bfseries\color{Rhodamine}},
+  commentstyle={\color{PineGreen!60!black}},
+  stringstyle={\rmfamily\color{YellowOrange}},
+  showstringspaces=false,
+  frame=shadowbox,
+  breakatwhitespace=false,
+  captionpos=b,
+  extendedchars=true,
+  keepspaces=true,
+  numbers=left,
+  numberstyle=\tiny,
+  rulecolor=\color{black},
+  rulesepcolor={\color{blue!20!white}},
+  showspaces=false,
+}
+\lstdefinelanguage{JavaScript}{
+  keywords={typeof, new, true, false, catch, function, return, null, catch, 
+  switch, var, if, in, while, do, else, case, break},
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  keywordstyle=\color{blue}\bfseries,
+  commentstyle=\color{gray}\ttfamily,
+  stringstyle=\color{red!50!yellow}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
+
+% break urls
+\usepackage{url}
+\def\UrlBreaks{\do\/\do-}
+\usepackage{breakurl}
+
+\usepackage{ifthen}
+\newboolean{release}
+
+\usepackage{color}
+\definecolor{darkred}{rgb}{.25,0,0}
+\definecolor{darkgreen}{rgb}{0,.2,0}
+\definecolor{darkmagenta}{rgb}{.2,0,.2}
+% \definecolor{darkcyan}{rgb}{0,.15,.15}
+\definecolor{bbbbb}{HTML}{00008B}
+% \definecolor{bbbbb}{HTML}{000000}
+\usepackage[
+    breaklinks=true,
+    plainpages=false,
+    bookmarks=true,
+    bookmarksopen=true,
+    colorlinks=true,
+    linkcolor=bbbbb,
+    citecolor=bbbbb,
+    filecolor=darkmagenta,
+    menucolor=darkred,
+    urlcolor=bbbbb
+]{hyperref}
+
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\fancyhead[LE,RO,LO,RE]{}
+\fancyfoot[CE,CO,RE,LO]{}
+\fancyfoot[LE,RO]{\Roman{page}}
+\renewcommand{\headrulewidth}{0pt}
+\setlength{\headheight}{13.6pt}
+
+\makeatletter
+\@addtoreset{figure}{section}
+\renewcommand{\thefigure}{\thesection.\arabic{figure}}
+\@addtoreset{table}{section}
+\renewcommand{\thetable}{\thesection.\arabic{table}}
+\makeatother
+
+\sloppy
+
+\addtolength{\topmargin}{-16mm}
+\setlength{\oddsidemargin}{25mm}
+\setlength{\evensidemargin}{35mm}
+\addtolength{\oddsidemargin}{-1in}
+\addtolength{\evensidemargin}{-1in}
+\setlength{\textwidth}{15cm}
+\addtolength{\textheight}{34mm}
+
+\usepackage{amsmath}
+\usepackage{wasysym}
+
+
+% professor's name
+\newcommand{\profName}{}
+\newcommand{\professor}[1]{\renewcommand{\profName}{#1}}
+
+% paper title
+\newcommand{\titleName}{}
+\renewcommand{\title}[1]{\renewcommand{\titleName}{#1}}
+
+% author name
+\newcommand{\authorName}{}
+\renewcommand{\author}[1]{\renewcommand{\authorName}{#1}}
+
+% author email
+\newcommand{\authorEmail}{}
+\newcommand{\email}[1]{\renewcommand{\authorEmail}{#1}}
+
+% bearbeitungszeitraum
+\newcommand{\bearbeitungszeitraumText}{}
+\newcommand{\bearbeitungszeitraum}[1]{\renewcommand{\bearbeitungszeitraumText}{#1}}
+
+% supervisor
+\newcommand{\supervisorName}{}
+\newcommand{\supervisor}[1]{\renewcommand{\supervisorName}{#1}}
+
+% department
+\newcommand{\departmentName}{}
+\newcommand{\department}[1]{\renewcommand{\departmentName}{#1}}
+% lfe
+\newcommand{\lfeName}{}
+\newcommand{\lfe}[1]{\renewcommand{\lfeName}{#1}}
+% thesis type
+\newcommand{\thesistype}{}
+\newcommand{\type}[1]{\renewcommand{\thesistype}{#1}}
+
+\newcommand{\makecover}{
+    \pagestyle{empty}
+    \pagenumbering{alph}
+    \begin{center}
+        \textsc{Ludwig-Maximilians-Universit\"at at M\"unchen}
+
+        Department ``\departmentName''\\
+        \lfeName\\
+        \profName
+
+        \vspace{1.50cm}
+        \includegraphics[width=.285\columnwidth]{theme/lmu-logo.png}
+        \vspace{1.25cm}
+
+        {\large\textbf{\thesistype}}\vspace{.5cm}
+
+        \vspace{2cm}
+        {\huge \titleName}
+        \vspace{2cm}
+
+        {\large \authorName}\\
+        \href{mailto:\authorEmail}{\authorEmail}
+    \end{center}
+    \vfill
+    \begin{tabular}{ll}
+    Bearbeitungszeitraum: & \bearbeitungszeitraumText \\
+    Betreuer: & \supervisorName \\
+    Verantw. Hochschullehrer: & \profName
+    \end{tabular}
+    \clearpage
+}
+
+\newcommand{\taskDescription}{}
+\newcommand{\taskdescription}[1]{\renewcommand{\taskDescription}{#1}}
+
+\newcommand{\maketaskdescription}{
+    \clearpage
+    \section*{Aufgabenstellung}
+
+    \textbf{\title}
+    \taskDescription
+
+    \vfill
+    \noindent Ich erkl\"are hiermit, dass ich die vorliegende Arbeit
+    selbstst\"andig angefertigt, alle Zitate als solche kenntlich gemacht
+    sowie alle benutzten Quellen und Hilfsmittel angegeben habe.
+
+    \bigskip\noindent M\"unchen, \today
+    \vspace{4ex}\noindent\makebox[7cm]{\dotfill}
+    \cleardoublepage
+}
+
+\newcommand{\acknoledgementDescription}{}
+\newcommand{\acknoledgement}[1]{\renewcommand{\acknoledgementDescription}{#1}}
+
+\newcommand{\makededication}{
+    \section*{Acknowledgments}
+    \acknoledgementDescription
+    \cleardoublepage
+}
+
+\newcommand{\abstractDescription}{}
+\renewcommand{\abstract}[1]{\renewcommand{\abstractDescription}{#1}}
+
+\newcommand{\makeabstract}{
+    \section*{Abstract}
+    \abstractDescription
+    \cleardoublepage
+}
+
+
+\newcommand{\maketoc}{
+    \pagestyle{fancy}
+    \pagenumbering{roman}
+    \setcounter{page}{1}
+    \tableofcontents
+    \cleardoublepage
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \fancyhead[LE,RO]{\rightmark}
+    \fancyhead[LO,RE]{\leftmark}
+    \fancyfoot[LE,RO]{\thepage}
+}
