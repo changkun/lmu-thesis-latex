@@ -1,15 +1,16 @@
-# LaTeX Template LMU Munich Theses
+# LaTeX Template for LMU Munich Thesis Paper and Beamer
 
-📔 A LaTeX template for LMU Master/Bachelor theses.
+📔 A LaTeXtemplate for LMU Master/Bachelor Theis paper and beamer.
 
 ## Quick start
 
 ```bash
-make         # build a draft version with watermark
+make draft   # build a draft version with watermark
 make release # build the release version without watermark
+make slides  # bulid your presentation slides
 ```
 
-See [draft](thesis.pdf) and [release](thesis-release.pdf) for a preview.
+See [draft](thesis.pdf) and [release](thesis-release.pdf), and [slides](slides.pdf) for a preview.
 
 ## Template structure
 

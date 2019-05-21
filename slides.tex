@@ -1,0 +1,110 @@
+\documentclass[10pt]{beamer}
+\usetheme{Madrid}
+\usecolortheme{spruce}
+\setbeamercolor{structure}{fg=lmugreen}
+\usepackage[english]{babel}
+\usepackage{tipa}
+\usepackage[utf8x]{inputenc}
+\usepackage{graphicx}
+\usepackage[abs]{overpic}
+\usepackage{tikz}
+\usepackage{mwe}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{hyperref}
+\usepackage{textcomp}
+\hypersetup{colorlinks,breaklinks,
+urlcolor=black,
+linkcolor=black,
+citecolor=black,
+}
+\usepackage[export]{adjustbox}
+\usepackage{float}
+% 表格
+\usepackage{tabularx}
+\setbeamerfont{caption}{size=\scriptsize}
+% 动画
+\usepackage{animate}
+% 背景
+\usebackgroundtemplate
+{
+\begin{picture}(200,200)
+\put(243,-85)
+{\hbox{
+\begin{tikzpicture}
+    \node[opacity=0.1]{\includegraphics[width=5cm]{theme/lmu-logo}};%
+\end{tikzpicture}
+}}
+\end{picture}
+}
+\definecolor{lmugreen}{RGB}{0,102,51}
+
+\title[Short Thesis Title]{
+    FULL THESIS TITLE
+}
+\author[AUTHOR, YEAR]{
+    AUTHOR
+}
+\institute[LMU]{
+    University of Munich \\
+    \texttt{\href{firstname.lastname@campus.lmu.de}{firstname.lastname@campus.lmu.de}}
+    }
+\date[Thesis Disputation, \today, 2019]{
+    Thesis Disputation, Munich, Germany\\
+    \today
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+\AtBeginSection[]
+{
+  \begin{frame}<beamer>
+    \frametitle{Outline}
+    \tableofcontents[currentsection]
+  \end{frame}
+}
+
+\section{Motivation}
+\begin{frame}{Motivation}
+    \begin{itemize}
+        \item bullet points 1 \pause
+        \item bullet points 2 \pause
+        \item bullet points 3 \cite{lamport1994latex} \pause
+        \item ...
+    \end{itemize}
+\end{frame}
+
+\section{Conclusion}
+\begin{frame}{Conclusion}
+    \small
+    Take away:
+    \pause
+    \begin{itemize}
+        \item bullet points 1
+        \item bullet points 2
+        \item bullet points 3 \cite{lamport2007writings}
+        \item ...
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[allowframebreaks]
+\frametitle{{Further Readings}}
+\bibliographystyle{apalike}
+\bibliography{literatures/list.bib}
+\end{frame}
+
+\begin{frame}{}
+    \centering \Large
+    \emph{Thank you!}
+  \end{frame}
+\end{document}
