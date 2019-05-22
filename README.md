@@ -1,6 +1,6 @@
 # LaTeX Template for LMU Munich Theses
 
-📔 A LaTeXtemplate for LMU Master/Bachelor Theis *paper* and *beamer*.
+📔 A LaTeX template for LMU Master/Bachelor Theis *paper* and *beamer*.
 
 ## Quick start
 
